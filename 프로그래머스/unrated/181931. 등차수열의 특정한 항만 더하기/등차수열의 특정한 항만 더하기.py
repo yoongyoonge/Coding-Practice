@@ -7,3 +7,6 @@ def solution(a, d, included):
         answer += a + d * v
 
     return answer
+
+    # sum(a + i * d for i, f in enumerate(included) if f)
+    # f 가 true일때 included에서 인덱스와 값뽑아서 계산
