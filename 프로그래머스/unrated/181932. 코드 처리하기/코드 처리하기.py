@@ -21,9 +21,9 @@ def solution(code):
         #print(i, v, mode)
         i += 1
     
-    # 빈 문자열 체크
-    if answer == '':
-        return "EMPTY"
     
-    
-    return answer
+    return answer if answer else "EMPTY" # 한 줄로 하는 연습하기
+
+
+    #return "".join(code.split("1"))[::2] or "EMPTY" # 이 한줄로도 가능
+    # 
