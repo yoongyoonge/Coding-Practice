@@ -283,3 +283,40 @@ print(ex_04.isdigit()) # 공백이 포함되어 False
 ### 13. sort() vs sorted()
 - sort는 리스트명.sort() 형식으로 리스트형의 메소드, 원본 값을 직접 수정
 - sorted는 sorted(리스트명) 형식으로 내장 함수, 원본 값은 그대로이고 정렬 값을 반환
+
+
+### dict.fromkeys(seq, value)
+- seq: 생성하려는 딕셔너리의 키 목록
+- value: 생성하려는 딕셔너리의 값
+- seq 값에 문자열을 입력할 수 도 있음
+
+``` python
+# 기본 사용법
+seq = ('name', 'age', 'sex')
+
+dict_1 = dict.fromkeys(seq)
+print(dict_1)
+
+dict_2 = dict.fromkeys(seq, 10)
+print(dict_2)
+
+## result ##
+{'age':None, 'name':None, 'sex':None}
+{'age':10, 'name':10, 'sex':10}
+```
+
+``` python
+# 중복 제거 활용법, 참고 해커랭크 Merge the Tools!
+# s = 'AABCAAADA'
+# k = 3
+
+
+divided_s = [s[i:i + k] for i in range(0, len(s), k)] # divided_s = ['AAB', 'CAA', 'ADA']
+
+    
+for val in divided_s:
+    print(''.join(dict.fromkeys(val))) # AAB -> AB, 중복된 키 값은 사라짐
+    #dict.fromkeys(val) = {'A': None, 'B': None}
+    # ''.join(dict.fromkeys(val)) = AB
+
+```
