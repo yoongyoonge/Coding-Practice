@@ -15,3 +15,20 @@ def solution(weights):
             answer += counter[i] * counter[i * 4 / 3]
     
     return answer
+
+# 이런풀이도 있다 
+'''
+    from itertools import combinations
+    from collections import Counter
+    
+    cnt = 0
+    weights = Counter(weights)
+    for a, b in combinations(weights.keys(), 2): # 서로 다른 무게, 딕셔너리에서 2개씩 뽑아 모든 조합을 생성
+        if a*2 == b*3 or a*2 == b*4 or a*3 == b*4 or b*2 == a*3 or b*2 == a*4 or b*3 == a*4:
+            cnt += weights[a] * weights[b]
+            
+    for v in weights.values(): # 같은 무게
+        if v > 1:
+            cnt += sum([i for i in range(1, v)])
+    return cnt
+'''
